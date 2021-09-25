@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace CropReplant
 {
-    [BepInPlugin("com.github.johndowson.CropReplant", "CropReplant", "0.1.6")]
+    [BepInPlugin("com.github.johndowson.CropReplant", "CropReplant", "0.1.6.1")]
     public class CropReplant : BaseUnityPlugin
     {
         private static readonly Harmony harmony = new(typeof(CropReplant).GetCustomAttributes(typeof(BepInPlugin), false)
