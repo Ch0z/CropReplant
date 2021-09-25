@@ -20,8 +20,10 @@ namespace CropReplant
         {
             {"Pickable_Carrot", "sapling_carrot" },
             {"Pickable_Turnip", "sapling_turnip" },
+            {"Pickable_Onion", "sapling_onion" },
             {"Pickable_SeedCarrot", "sapling_seedcarrot" },
             {"Pickable_SeedTurnip", "sapling_seedturnip" },
+            {"Pickable_SeedOnion", "sapling_seedonion" },
             {"Pickable_Barley", "sapling_barley" },
             {"Pickable_Flax", "sapling_flax" },
         };
@@ -30,8 +32,10 @@ namespace CropReplant
             "same",
             "sapling_carrot",
             "sapling_turnip",
+            "sapling_onion",
             "sapling_seedcarrot",
             "sapling_seedturnip",
+            "sapling_seedonion",
             "sapling_barley",
             "sapling_flax",
         };
