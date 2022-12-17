@@ -15,6 +15,8 @@ namespace CropReplant
             { "OnionSeeds", "sapling_seedonion" },
             { "Barley", "sapling_barley" },
             { "Flax", "sapling_flax" },
+            { "MushroomMagecap", "sapling_magecap" },
+            { "MushroomJotunPuffs", "sapling_jotungpuffs" },
         };
 
         public static readonly Dictionary<string, string> seedMap = new()
@@ -27,6 +29,8 @@ namespace CropReplant
             { "Pickable_SeedOnion", "sapling_seedonion" },
             { "Pickable_Barley", "sapling_barley" },
             { "Pickable_Flax", "sapling_flax" },
+            { "Pickable_Mushroom_Magecap", "sapling_magecap" },
+            { "Pickable_Mushroom_JotunPuffs", "sapling_jotunpuffs" },
         };
 
         public static readonly string[] replantableCrops = seedMap.Keys.ToArray();
