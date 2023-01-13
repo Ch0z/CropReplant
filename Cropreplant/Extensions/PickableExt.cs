@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
 namespace CropReplant
 {
     public static class PickableExt
     {
-        public static readonly Dictionary<string, string> pickablePlant = new()
+        public static Dictionary<string, string> pickablePlants = new Dictionary<string, string>
         {
             { "Carrot", "sapling_carrot" },
             { "Turnip", "sapling_turnip" },
@@ -16,10 +17,10 @@ namespace CropReplant
             { "Barley", "sapling_barley" },
             { "Flax", "sapling_flax" },
             { "MushroomMagecap", "sapling_magecap" },
-            { "MushroomJotunPuffs", "sapling_jotungpuffs" },
+            { "MushroomJotunPuffs", "sapling_jotunpuffs" },
         };
 
-        public static readonly Dictionary<string, string> seedMap = new()
+        public static Dictionary<string, string> seedMap = new Dictionary<string, string>
         {
             { "Pickable_Carrot", "sapling_carrot" },
             { "Pickable_Turnip", "sapling_turnip" },
@@ -32,6 +33,7 @@ namespace CropReplant
             { "Pickable_Mushroom_Magecap", "sapling_magecap" },
             { "Pickable_Mushroom_JotunPuffs", "sapling_jotunpuffs" },
         };
+
 
         public static readonly string[] replantableCrops = seedMap.Keys.ToArray();
 
@@ -84,10 +86,10 @@ namespace CropReplant
 
                     if (prefab.name == "cultivate_v2")
                     {
-                        bool keyExists = pickablePlant.ContainsKey(pickable.m_itemPrefab.name);
+                        bool keyExists = pickablePlants.ContainsKey(pickable.m_itemPrefab.name);
                         if (keyExists)
                         {
-                            prefab = ZNetScene.instance.GetPrefab(pickablePlant[pickable.m_itemPrefab.name]);
+                            prefab = ZNetScene.instance.GetPrefab(pickablePlants[pickable.m_itemPrefab.name]);
                         }
                         else
                         {

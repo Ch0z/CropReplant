@@ -1,4 +1,4 @@
-﻿using BepInEx;
+using BepInEx;
 using HarmonyLib;
 using System.Linq;
 using System.Collections.Generic;
@@ -13,20 +13,16 @@ namespace CropReplant
     {
         public const string PluginGUID = "com.github.johndowson.CropReplant";
         public const string PluginName = "CropReplant";
-        public const string PluginVersion = "2.2.1";
+        public const string PluginVersion = "2.2.2";
         private CustomLocalization Localization;
 
-        private static readonly Harmony harmony = new(typeof(CropReplant).GetCustomAttributes(typeof(BepInPlugin), false)
-            .Cast<BepInPlugin>()
-            .First()
+        private static readonly Harmony harmony = new Harmony(typeof(global::CropReplant.CropReplant).GetCustomAttributes(typeof(BepInPlugin), inherit: false).Cast<BepInPlugin>().First()
             .GUID);
 
-#pragma warning disable IDE0051 // Remove unused private members
 
         private void Awake()
         {
             CRConfig.Bind(this);
-            harmony.PatchAll();
             Localization = new CustomLocalization();
             LocalizationManager.Instance.AddLocalization(Localization);
             Localization.AddTranslation("English", new Dictionary<string, string>
@@ -38,9 +34,10 @@ namespace CropReplant
             Localization.AddTranslation("French", new Dictionary<string, string>
             {
                 {"replant_with", "Replanter avec"},
-                {"same", "la même graine"},
+                {"same", "la m�me graine"},
                 {"choose_different", "Choisir une autre graine"}
             });
+            harmony.PatchAll();
         }
 
         private void OnDestroy()
@@ -49,3 +46,4 @@ namespace CropReplant
         }
     }
 }
+

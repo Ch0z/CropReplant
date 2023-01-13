@@ -32,7 +32,7 @@ namespace CropReplant.Patches
 				bool is_healthy = __instance.GetStatus() == Plant.Status.Healthy;
 				if (is_healthy)
 				{
-					DateTime d = new(__instance.m_nview.GetZDO().GetLong("plantTime", ZNet.instance.GetTime().Ticks));
+					DateTime d = new DateTime(__instance.m_nview.GetZDO().GetLong("plantTime", ZNet.instance.GetTime().Ticks));
                     var timeSincePlanted = (ZNet.instance.GetTime() - d).TotalSeconds;
 					var growTime = __instance.GetGrowTime();
 					var percentGrow = (int)(timeSincePlanted / growTime * 100);

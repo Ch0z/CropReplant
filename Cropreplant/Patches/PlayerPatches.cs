@@ -27,22 +27,20 @@ namespace CropReplant.PlayerPatches
             {
                 if (__instance.CultivatorRequirement())
                 {
-                    GameObject[] parameters = new GameObject[] { null, null };
-                    PlayerExt.FindHoverObject.Invoke(__instance, parameters);
-                    var maybePickable = parameters[0]?.GetComponent<Pickable>();
-                    if (maybePickable != null)
+                    __instance.FindHoverObject(out var hover, out var _);
+                    Pickable pickable = hover?.GetComponentInParent<Pickable>();
+                    if (!(pickable != null) || !pickable.Replantable())
                     {
-                        if (maybePickable.Replantable())
-                        {
-                            maybePickable.Replant(__instance);
-                            if (CRConfig.multipick)
-                            {
-                                foreach (var crop in maybePickable.FindPickableOfKindInRadius(CRConfig.range))
-                                {
-                                    crop.Replant(__instance);
-                                }
-                            }
-                        }
+                        return;
+                    }
+                    pickable.Replant(__instance);
+                    if (!CRConfig.multipick)
+                    {
+                        return;
+                    }
+                    foreach (Pickable item in pickable.FindPickableOfKindInRadius(CRConfig.range))
+                    {
+                        item.Replant(__instance);
                     }
                 }
             }

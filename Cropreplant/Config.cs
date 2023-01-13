@@ -58,7 +58,7 @@ namespace CropReplant
                 Config = c_customReplantKey,
                 HintToken = "Replant"
             };
-            KeyHintConfig replantHint = new()
+            KeyHintConfig keyHintReplant = new KeyHintConfig
             {
                 ButtonConfigs = new ButtonConfig[1] { replantButton }
             };
@@ -68,12 +68,12 @@ namespace CropReplant
                 Config = c_nextSeedKey,
                 HintToken = "Next Seed Key"
             };
-            KeyHintConfig nextKeyHint = new()
+            KeyHintConfig KeyHintNextSeed = new KeyHintConfig
             {
                 ButtonConfigs = new ButtonConfig[1] { nextSeedButton }
             };
-            GUIManager.Instance.AddKeyHint(replantHint);
-            GUIManager.Instance.AddKeyHint(nextKeyHint);
+            KeyHintManager.Instance.AddKeyHint(keyHintReplant);
+            KeyHintManager.Instance.AddKeyHint(KeyHintNextSeed);
             InputManager.Instance.AddButton("com.github.johndowson.CropReplant", replantButton);
             InputManager.Instance.AddButton("com.github.johndowson.CropReplant", nextSeedButton);
         }

@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using UnityEngine;
 using System.Reflection;
+using static ItemDrop;
 
 namespace CropReplant
 {
@@ -17,7 +18,8 @@ namespace CropReplant
         {
             if (CRConfig.useDurability & !CRConfig.oldStyle)
             {
-                player.m_rightItem.m_durability -= player.m_rightItem.m_shared.m_useDurabilityDrain;
+                ItemData item = ((Humanoid)player).m_inventory.GetItem("$item_cultivator", -1, false);
+                item.m_durability -= item.m_shared.m_useDurabilityDrain;
             }
         }
     }
