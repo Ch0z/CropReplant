@@ -111,14 +111,14 @@ namespace CropReplant
 
                 if (hasResources)
                 {
-                    pickable.m_nview.InvokeRPC("Pick", new Object[] { });
+                    pickable.Interact(player, repeat: false, false);
                     UnityEngine.Object.Instantiate(prefab, pickable.transform.position, Quaternion.identity);
                     player.ConsumeResources(piece.m_resources, 1, -1);
                     player.UseItemInHand();
                 }
                 else if (!CRConfig.blockHarvestNoResources)
                 {
-                    pickable.m_nview.InvokeRPC("Pick", new Object[] { });
+                    pickable.Interact(player, repeat: false, false);
                 }
             }
         }
