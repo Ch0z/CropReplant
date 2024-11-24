@@ -13,7 +13,7 @@ namespace CropReplant
     {
         public const string PluginGUID = "com.github.johndowson.CropReplant";
         public const string PluginName = "CropReplant";
-        public const string PluginVersion = "2.2.4";
+        public const string PluginVersion = "2.2.5";
         private CustomLocalization Localization;
 
         private static readonly Harmony harmony = new Harmony(typeof(global::CropReplant.CropReplant).GetCustomAttributes(typeof(BepInPlugin), inherit: false).Cast<BepInPlugin>().First()
